@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script>
+    <video id="video_0" autoplay="true" muted="muted" style="width:200px; height:200px;"></video>
+    <video id="video_1" autoplay="true" muted="muted" style="width:200px; height:200px;"></video>
+    <video id="video_2" autoplay="true" muted="muted" style="width:200px; height:200px;"></video>
+    <video id="video_3" autoplay="true" muted="muted" style="width:200px; height:200px;"></video>
+    <video id="video_4" autoplay="true" muted="muted" style="width:200px; height:200px;"></video>
+    <video id="video_5" autoplay="true" muted="muted" style="width:200px; height:200px;"></video>
+    <video id="video_6" autoplay="true" muted="muted" style="width:200px; height:200px;"></video>
+    <video id="video_8" autoplay="true" muted="muted" style="width:200px; height:200px;"></video>
+    <video id="video_9" autoplay="true" muted="muted" style="width:200px; height:200px;"></video>
+    <video id="video_10" autoplay="true" muted="muted" style="width:200px; height:200px;"></video>
+    <video id="video_11" autoplay="true" muted="muted" style="width:200px; height:200px;"></video>
+
+    <script>
+      const load = 10;
+      for (let i = 0; i < load; i++) {
+        if (flvjs.isSupported()) {
+         // const video = document.createElement("video_" + i);
+          //video.autoplay = true;
+          //video.muted = "muted";
+          const flvPlayer = flvjs.createPlayer({
+            type: "flv",
+            url:
+              "http://rtmp-dev.channelize.io:8000/live/testing_" + i + ".flv",
+          });
+          const videoElement = document.getElementById("video_" + i);
+          flvPlayer.attachMediaElement(videoElement);
+          flvPlayer.load();
+          flvPlayer.play();
+        }
+      }
+    </script>
+  </body>
+</html>
